@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "active_model/logger_attributes"
+require "awesome_print"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+# (If you use this, don't forget to add pry to your Gemfile!)
+# require "pry"
+# Pry.start
+
+class TestModel
+  include ActiveModel::Model
+
+  logger_attr :log, logger_class: ::Logger, logger_name: :logger, logger_init: ->(l) { l.level = ::Logger::WARN }
+end
+
+
+@foo = TestModel.new log: ['D, [2018-02-05T09:22:14.343646 #27967] DEBUG -- : logger_attr lives!']
+@foo.logger.debug "Debug message"
+@foo.logger.info "Info message"
+@foo.logger.warn "Warning message"
+@foo.logger.error "Error message"
+
+ap @foo.log
+
+require "irb"
+IRB.start(__FILE__)
