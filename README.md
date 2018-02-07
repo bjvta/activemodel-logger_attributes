@@ -9,7 +9,7 @@ You may be also be interested in the (ActiveRecord version)[https://github.com/c
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'activemodel-logger_attributes'
+gem 'activemodel-logger_attributes', '~> 0.1.1'
 ```
 
 And then execute:

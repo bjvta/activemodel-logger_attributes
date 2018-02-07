@@ -7,18 +7,25 @@ module ActiveModel
   module LoggerAttributes
     extend ActiveSupport::Concern
 
-    DEFAULT_OPTIONS = { logger_class: ::Logger, logger_name: nil, logger_init: -> {} }.freeze
-
     InvalidAttributeValue = Class.new(RuntimeError)
 
     module ClassMethods
-      def logger_attr(attribute, options = {})
-        attribute = attribute.to_sym
+      def logger_attr_default_options
+        { logger_class: ::Logger, logger_name: nil, logger_init: ->(l) {} }
+      end
+
+      def setup_logger_attr(attribute, options)
+        puts "DEFAULTS: #{logger_attr_default_options.ai}"
         @logger_attributes ||= {}
-        @logger_attributes[attribute] = DEFAULT_OPTIONS.merge(options)
+        @logger_attributes[attribute] = logger_attr_default_options.merge(options)
         @logger_attributes[attribute][:logger_name] ||= "#{attribute}_logger"
         define_logger_attr_initializer(attribute)
         define_logger_attr_accessor(attribute)
+      end
+
+      def logger_attr(attribute, options = {})
+        attribute = attribute.to_sym
+        setup_logger_attr(attribute, options)
         attr_accessor(attribute)
       end
 

@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     activemodel-logger_attributes (0.1.0)
-      activemodel (> 4)
+      activemodel (> 4, < 6)
 
 GEM
   remote: https://rubygems.org/
