@@ -15,7 +15,6 @@ module ActiveModel
       end
 
       def setup_logger_attr(attribute, options)
-        puts "DEFAULTS: #{logger_attr_default_options.ai}"
         @logger_attributes ||= {}
         @logger_attributes[attribute] = logger_attr_default_options.merge(options)
         @logger_attributes[attribute][:logger_name] ||= "#{attribute}_logger"
