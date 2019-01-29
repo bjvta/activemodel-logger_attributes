@@ -2,7 +2,7 @@
 
 This gem provides a convenient way to save `Logger` messages to an attribute on your model. Multiple logger attributes are supported.
 
-You may be also be interested in the (ActiveRecord version)[https://github.com/chrisb/activerecord-logger_attributes].
+You may be also be interested in the [ActiveRecord version](https://github.com/chrisb/activerecord-logger_attributes).
 
 ## Installation
 
