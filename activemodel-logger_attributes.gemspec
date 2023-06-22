@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/chrisb/activemodel-logger_attributes"
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ["lib"]
-  spec.add_dependency 'activemodel', '> 4', '< 6'
+  spec.add_dependency 'activemodel', '> 4', '< 8'
   spec.add_development_dependency 'awesome_print', '~> 1'
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
